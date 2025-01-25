@@ -66,10 +66,26 @@ body.dark-mode {
   flex-direction: column;
   padding: 20px;
 }
+
 .mark-block button {
-  width: 50px;
+  width: fit-content;
+  height: fit-content;
+  padding: 5px 20px ;
 }
 
-.mark-block p {
+.block-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.block-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.mark-block h2, p {
   color: var(--color-background);
+}
+.block-content textarea {
+  width: 100%;
 }
