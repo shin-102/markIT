@@ -36,45 +36,40 @@ const Markblock: React.FC<Props> = ({ counter, content, onDelete, onUpdate }) =>
   };
 
   return (
-    <div>
-      <div className="block">
-        <div className="block-title">
-          <h2>Block {counter}</h2>
-          <div className="block-buttons">
-            {editing ? (
-              <>
-                <button onClick={handleSave} className="mode-switch">
-                  Save
-                </button>
-                <button onClick={handleCancel} className="mode-switch">
-                  Cancel
-                </button>
-              </>
-            ) : (
-              <button onClick={handleEdit} className="mode-switch">
-                Edit
-              </button>
-            )}
-            <button onClick={onDelete} className="mode-switch">
-              Delete
+    <section className="block">
+      <div className="block-buttons">
+        {editing ? (
+          <>
+            <button onClick={handleSave} >
+              Save
             </button>
-          </div>
-        </div>
-        <div className="block-content">
-          {editing ? (
-            <textarea
-              value={tempContent}
-              onChange={(e) => setTempContent(e.target.value)}
-              rows={4}
-              title="block-edit_field"
-            />
-          ) : (
-            <p>{editableContent}</p>
-          )}
-        </div>
+            <button onClick={handleCancel} >
+              Cancel
+            </button>
+          </>
+        ) : (
+          <button onClick={handleEdit} >
+            Edit
+          </button>
+        )}
+        <button onClick={onDelete} >
+          Delete
+        </button>
       </div>
-      <hr />
-    </div>
+      <div className="block-content">
+        <h2>Block {counter}</h2>
+        {editing ? (
+          <textarea
+            value={tempContent}
+            onChange={(e) => setTempContent(e.target.value)}
+            rows={4}
+            title="block-edit_field"
+          />
+        ) : (
+          <p>{editableContent}</p>
+        )}
+      </div>
+    </section>
   );
 };
 

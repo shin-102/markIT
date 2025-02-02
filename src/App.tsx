@@ -36,7 +36,7 @@ const App: React.FC = () => {
   const addBlock = () => {
     setBlocks((prevBlocks) => [
       ...prevBlocks,
-      { id: prevBlocks.length + 1, content: '' },
+      { id: prevBlocks.length + 1, content: 'Add new item' },
     ]);
   };
 
@@ -54,29 +54,35 @@ const App: React.FC = () => {
 
   return (
     <main className={darkMode ? 'app dark-mode' : 'app'}>
-      <article>
-        <button onClick={toggleDarkMode} className="mode-switch">
-          {darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-        </button>
-        <h1 className="title">
-          Mark<span className={darkMode ? 'it dark-mode' : 'it'}>IT</span>
-        </h1>
+      
+      <article className='mark-header'>
+        <section>
+          <h1>
+            Mark<span className={darkMode ? 'it dark-mode' : 'it'}>IT</span>
+          </h1> 
+          <button onClick={toggleDarkMode} >
+            {darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+          </button>                 
+        </section>
+        <section>
+          <button onClick={addBlock} >
+            Add new block
+          </button>          
+        </section>
+
       </article>
+
       <article className="mark-block">
-        <button onClick={addBlock} className="mode-switch">
-          +
-        </button>
         {blocks.map((block) => (
-          <div key={block.id}>
-            <Markblock
-              counter={block.id}
-              content={block.content}
-              onDelete={() => deleteBlock(block.id)}
-              onUpdate={(newContent) => updateContent(block.id, newContent)}
-            />
-          </div>
+          <Markblock
+            counter={block.id}
+            content={block.content}
+            onDelete={() => deleteBlock(block.id)}
+            onUpdate={(newContent) => updateContent(block.id, newContent)}
+          />
         ))}
       </article>
+
     </main>
   );
 };
