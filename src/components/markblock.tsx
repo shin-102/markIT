@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../index.css';
+import Markdown from 'react-markdown';
 
 type Props = {
   counter: number;
@@ -8,7 +9,7 @@ type Props = {
   onUpdate: (newContent: string) => void;
 };
 
-const Markblock: React.FC<Props> = ({ counter, content, onDelete, onUpdate }) => {
+const Markblock: React.FC<Props> = ({ content, onDelete, onUpdate }) => {
   const [editableContent, setEditableContent] = useState(content);
   const [editing, setEditing] = useState(false);
   const [tempContent, setTempContent] = useState(content);
@@ -35,6 +36,11 @@ const Markblock: React.FC<Props> = ({ counter, content, onDelete, onUpdate }) =>
     setEditing(false); // Exit editing mode
   };
 
+  const lineCount = tempContent.split("\n").length;
+  
+  const renderMarkdown = (content: string) => {
+    return content.replace(/\n/g, '  \n'); // Markdown recognizes "  \n" as a line break
+  };
   return (
     <section className="block">
       <div className="block-buttons">
@@ -57,18 +63,18 @@ const Markblock: React.FC<Props> = ({ counter, content, onDelete, onUpdate }) =>
         </button>
       </div>
       <div className="block-content">
-        <h2>Block {counter}</h2>
         {editing ? (
           <textarea
             value={tempContent}
             onChange={(e) => setTempContent(e.target.value)}
-            rows={4}
+            rows={Math.max(4, lineCount)}
             title="block-edit_field"
           />
         ) : (
-          <p>{editableContent}</p>
+          <Markdown>{renderMarkdown(editableContent)}</Markdown>
         )}
       </div>
+      <hr />
     </section>
   );
 };

@@ -36,7 +36,7 @@ const App: React.FC = () => {
   const addBlock = () => {
     setBlocks((prevBlocks) => [
       ...prevBlocks,
-      { id: prevBlocks.length + 1, content: 'Add new item' },
+      { id: prevBlocks.length + 1, content: "Use '#' for **headings**,\n'-' for *unordered* lists,\n '1.' for *numbered* lists,\n\n or read [Markdown syntax](https://www.markdownguide.org/basic-syntax/)" },
     ]);
   };
 
