@@ -54,25 +54,24 @@ const App: React.FC = () => {
 
   return (
     <main className={darkMode ? 'app dark-mode' : 'app'}>
-      
-      <article className='mark-header'>
-        <section>
-          <h1>
+      <div className='mark-header'>
+        <div>
+          <h1 className='mark-title'>
             Mark<span className={darkMode ? 'it dark-mode' : 'it'}>IT</span>
           </h1> 
           <button onClick={toggleDarkMode} >
             {darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
           </button>                 
-        </section>
+        </div>
         <section>
           <button onClick={addBlock} >
             Add new block
           </button>          
         </section>
 
-      </article>
+      </div>
 
-      <article className="mark-block">
+      <div className="mark-block">
         {blocks.map((block) => (
           <Markblock
             counter={block.id}
@@ -81,7 +80,7 @@ const App: React.FC = () => {
             onUpdate={(newContent) => updateContent(block.id, newContent)}
           />
         ))}
-      </article>
+      </div>
 
     </main>
   );

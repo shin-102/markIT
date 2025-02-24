@@ -15,7 +15,7 @@ Create and store your notes for later purpose!
 
 ## Bonus features
 
--   [ ] User can create and edit a note in Markdown format. On save it will convert Markdown to HTML
+-   [x] User can create and edit a note in Markdown format. On save it will convert Markdown to HTML
 -   [ ] User can see the date when he created the note
 
 ## Useful links and resources
@@ -29,3 +29,6 @@ Create and store your notes for later purpose!
 -   [Markdown Notes built with Angular on Codepen](https://codepen.io/nickmoreton/full/gbyygq)
 -   [Markdown Notes built with React](https://github.com/email2vimalraj/notes-app)
 -   [Markdown Notes built with Angular 7 and bootstrap 4](https://github.com/omdnaik/angular-ui)
+
+---
+used : [react-markdown](https://github.com/remarkjs/react-markdown?tab=readme-ov-file)

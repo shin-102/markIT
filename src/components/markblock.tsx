@@ -42,7 +42,7 @@ const Markblock: React.FC<Props> = ({ content, onDelete, onUpdate }) => {
     return content.replace(/\n/g, '  \n'); // Markdown recognizes "  \n" as a line break
   };
   return (
-    <section className="block">
+    <div className="block">
       <div className="block-buttons">
         {editing ? (
           <>
@@ -75,7 +75,7 @@ const Markblock: React.FC<Props> = ({ content, onDelete, onUpdate }) => {
         )}
       </div>
       <hr />
-    </section>
+    </div>
   );
 };
 
